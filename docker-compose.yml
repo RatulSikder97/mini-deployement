@@ -1,0 +1,8 @@
+version: '2.27.0'
+
+services:
+  pmc-account: 
+    image: ratulsikder104/pmc-accounts:dev
+    ports:
+      - 4001:4001
+
