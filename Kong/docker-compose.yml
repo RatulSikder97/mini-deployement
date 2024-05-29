@@ -41,13 +41,13 @@ services:
       KONG_ADMIN_ACCESS_LOG: /dev/stdout
       KONG_PROXY_ERROR_LOG: /dev/stderr
       KONG_ADMIN_ERROR_LOG: /dev/stderr
-      KONG_ADMIN_LISTEN: '192.168.88.53:8001'
-      KONG_ADMIN_GUI_URL: 'http://192.168.88.53:8002/'
+      KONG_ADMIN_LISTEN: '192.168.88.53:5001'
+      KONG_ADMIN_GUI_URL: 'http://192.168.88.53:5002/'
     ports:
       - "5000:8000"   # Proxy
       - "5443:8443"   # Proxy SSL
-      - "8001:8001"   # Admin API
-      - "8002:8002"   # Admin API
+      - "5001:8001"   # Admin API
+      - "5002:8002"   # Admin API
     depends_on:
       - kong-migrations
     restart: always
