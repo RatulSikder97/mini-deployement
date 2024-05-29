@@ -4,15 +4,18 @@ services:
   kong-database:
     image: postgres:latest
     container_name: kong-database
+    user: root
     environment:
       POSTGRES_USER: kong
       POSTGRES_DB: kong
+      POSTGRES_PASSWORD: kong
     ports:
-      - "5440:5432"
+      - "5432:5432"
 
   kong-migrations:
     image: kong:latest
     container_name: kong-migrations
+    user: root
     environment:
       KONG_DATABASE: postgres
       KONG_PG_HOST: kong-database
@@ -27,6 +30,7 @@ services:
   kong:
     image: kong:latest
     container_name: kong
+    user: root
     environment:
       KONG_DATABASE: postgres
       KONG_PG_HOST: kong-database
@@ -38,10 +42,14 @@ services:
       KONG_PROXY_ERROR_LOG: /dev/stderr
       KONG_ADMIN_ERROR_LOG: /dev/stderr
       KONG_ADMIN_LISTEN: '0.0.0.0:8001'
+      KONG_ADMIN_GUI_URL: 'http://192.168.88.53:8002'
     ports:
       - "5000:8000"   # Proxy
       - "5443:8443"   # Proxy SSL
       - "5001:8001"   # Admin API
+      - "5002:8002"   # Admin API
     depends_on:
       - kong-migrations
     restart: always
+
+ 
