@@ -44,8 +44,8 @@ services:
       KONG_ADMIN_LISTEN: '192.168.88.53:8001'
       KONG_ADMIN_GUI_URL: 'http://192.168.88.53:8002/'
     ports:
-      - "8000:8000"   # Proxy
-      - "8443:8443"   # Proxy SSL
+      - "5000:8000"   # Proxy
+      - "5443:8443"   # Proxy SSL
       - "8001:8001"   # Admin API
       - "8002:8002"   # Admin API
     depends_on:
