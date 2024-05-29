@@ -42,7 +42,7 @@ services:
       KONG_PROXY_ERROR_LOG: /dev/stderr
       KONG_ADMIN_ERROR_LOG: /dev/stderr
       KONG_ADMIN_LISTEN: '0.0.0.0:8001'
-      KONG_ADMIN_GUI_URL: 'http://0.0.0.0:8002/'
+      KONG_ADMIN_GUI_URL: 'http://192.168.88.53:5002/'
     ports:
       - "5000:8000"   # Proxy
       - "5443:8443"   # Proxy SSL
